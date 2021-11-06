@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.875, 11.875" name="DemirbasDB">
+  <DataContextMoniker Name="/DemirbasDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="768fc854-60c3-41e4-8ed5-8fd33ba72c28" absoluteBounds="6.75, 2.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DemirbasDBDataContext/tbl_Calisanlar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cfed8619-3396-421c-96f0-53877af54571" absoluteBounds="6.7650000000000006, 3.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a46d73a1-222e-447d-9d97-4d50d3405a5d" absoluteBounds="2, 4.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DemirbasDBDataContext/tbl_Kullanicilar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="75db0636-18d6-4106-9c71-139cc101d7d4" absoluteBounds="2.0150000000000006, 5.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d75d9793-4e9e-4c66-8c39-411023ab9890" absoluteBounds="8.5, 9.25, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DemirbasDBDataContext/tbl_Urunler" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7bc31a45-1db2-41f1-ab42-5a8dc1135231" absoluteBounds="8.515, 9.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f1c9662e-7b52-42ba-9ffd-af0dc00aa81f" absoluteBounds="9.625, 3.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DemirbasDBDataContext/tbl_Zimmetliler" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aa5f0bbc-fc88-4765-ad6d-43946227e327" absoluteBounds="9.64, 3.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.75 : 3.88544840494792); (9.625 : 3.88544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DemirbasDBDataContext/tbl_Calisanlar/tbl_Calisanlar_tbl_Zimmetliler" />
+      <nodes>
+        <classShapeMoniker Id="768fc854-60c3-41e4-8ed5-8fd33ba72c28" />
+        <classShapeMoniker Id="f1c9662e-7b52-42ba-9ffd-af0dc00aa81f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.21875 : 9.25); (10.21875 : 5.0881982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DemirbasDBDataContext/tbl_Urunler/tbl_Urunler_tbl_Zimmetliler" />
+      <nodes>
+        <classShapeMoniker Id="d75d9793-4e9e-4c66-8c39-411023ab9890" />
+        <classShapeMoniker Id="f1c9662e-7b52-42ba-9ffd-af0dc00aa81f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2d0b2a4e-c452-4274-8fa8-0cfbb380acc9" absoluteBounds="7.875, 5.75, 2, 2.5401025390625">
+      <DataClassMoniker Name="/DemirbasDBDataContext/tbl_Servisler" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8810ceae-c552-4040-8bfa-f8f4232b5b3b" absoluteBounds="7.89, 6.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.3125 : 4.64589680989583); (8.3125 : 5.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DemirbasDBDataContext/tbl_Calisanlar/tbl_Calisanlar_tbl_Servisler" />
+      <nodes>
+        <classShapeMoniker Id="768fc854-60c3-41e4-8ed5-8fd33ba72c28" />
+        <classShapeMoniker Id="2d0b2a4e-c452-4274-8fa8-0cfbb380acc9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.1875 : 9.25); (9.1875 : 8.2901025390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DemirbasDBDataContext/tbl_Urunler/tbl_Urunler_tbl_Servisler" />
+      <nodes>
+        <classShapeMoniker Id="d75d9793-4e9e-4c66-8c39-411023ab9890" />
+        <classShapeMoniker Id="2d0b2a4e-c452-4274-8fa8-0cfbb380acc9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4f5b9096-b40b-4c37-a05f-456e9d4564c2" absoluteBounds="5.125, 8.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DemirbasDBDataContext/tbl_UrunKategori" />
+      <nestedChildShapes>
+        <elementListCompartment Id="67687966-0d20-4571-9823-943ce8097463" absoluteBounds="5.14, 8.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.125 : 8.77004876953125); (9.10416666666667 : 8.77004876953125 : JumpStart); (9.27083333333333 : 8.77004876953125 : JumpEnd); (10.0468725 : 8.77004876953125); (10.0468725 : 9.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DemirbasDBDataContext/tbl_UrunKategori/tbl_UrunKategori_tbl_Urunler" />
+      <nodes>
+        <classShapeMoniker Id="4f5b9096-b40b-4c37-a05f-456e9d4564c2" />
+        <classShapeMoniker Id="d75d9793-4e9e-4c66-8c39-411023ab9890" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f0dab977-317a-419e-aecc-f5908d0873ef" absoluteBounds="4.625, 5.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DemirbasDBDataContext/tbl_AltUrunKategori" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d3595f3d-9fd1-40e0-9d46-fe58773d345a" absoluteBounds="4.64, 5.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.84375 : 7.07859537760417); (4.84375 : 10.5857975260417); (8.5 : 10.5857975260417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DemirbasDBDataContext/tbl_AltUrunKategori/tbl_AltUrunKategori_tbl_Urunler" />
+      <nodes>
+        <classShapeMoniker Id="f0dab977-317a-419e-aecc-f5908d0873ef" />
+        <classShapeMoniker Id="d75d9793-4e9e-4c66-8c39-411023ab9890" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.625 : 6.41429768880208); (7.875 : 6.41429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DemirbasDBDataContext/tbl_AltUrunKategori/tbl_AltUrunKategori_tbl_Servisler" />
+      <nodes>
+        <classShapeMoniker Id="f0dab977-317a-419e-aecc-f5908d0873ef" />
+        <classShapeMoniker Id="2d0b2a4e-c452-4274-8fa8-0cfbb380acc9" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

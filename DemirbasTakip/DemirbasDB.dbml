@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DemirbasTakip" Class="DemirbasDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=DemirbasTakip;Integrated Security=True" SettingsObjectName="DemirbasTakip.Properties.Settings" SettingsPropertyName="DemirbasTakipConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbl_Calisanlar" Member="tbl_Calisanlars">
+    <Type Name="tbl_Calisanlar">
+      <Column Name="cid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cAdSoyad" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="cGirTah" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="cTur" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="cSilindi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_Calisanlar_tbl_Zimmetliler" Member="tbl_Zimmetlilers" ThisKey="cid" OtherKey="Calisanid" Type="tbl_Zimmetliler" />
+      <Association Name="tbl_Calisanlar_tbl_Servisler" Member="tbl_Servislers" ThisKey="cid" OtherKey="calisanid" Type="tbl_Servisler" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Kullanicilar" Member="tbl_Kullanicilars">
+    <Type Name="tbl_Kullanicilar">
+      <Column Name="kid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kTc" Type="System.String" DbType="Char(11) NOT NULL" CanBeNull="false" />
+      <Column Name="kSifre" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="kSilindi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Urunler" Member="tbl_Urunlers">
+    <Type Name="tbl_Urunler">
+      <Column Name="barkod" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ad" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Kategoriid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GirisTah" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="GarantiBas" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="GarantiSon" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AltKategoriid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Silindi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_Urunler_tbl_Zimmetliler" Member="tbl_Zimmetlilers" ThisKey="barkod" OtherKey="Barkod" Type="tbl_Zimmetliler" />
+      <Association Name="tbl_Urunler_tbl_Servisler" Member="tbl_Servislers" ThisKey="barkod" OtherKey="Barkod" Type="tbl_Servisler" />
+      <Association Name="tbl_UrunKategori_tbl_Urunler" Member="tbl_UrunKategori" ThisKey="Kategoriid" OtherKey="id" Type="tbl_UrunKategori" IsForeignKey="true" />
+      <Association Name="tbl_AltUrunKategori_tbl_Urunler" Member="tbl_AltUrunKategori" ThisKey="AltKategoriid" OtherKey="id" Type="tbl_AltUrunKategori" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Zimmetliler" Member="tbl_Zimmetlilers">
+    <Type Name="tbl_Zimmetliler">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Barkod" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Calisanid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Baslangic" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Bitis" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Silindi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_Calisanlar_tbl_Zimmetliler" Member="tbl_Calisanlar" ThisKey="Calisanid" OtherKey="cid" Type="tbl_Calisanlar" IsForeignKey="true" />
+      <Association Name="tbl_Urunler_tbl_Zimmetliler" Member="tbl_Urunler" ThisKey="Barkod" OtherKey="barkod" Type="tbl_Urunler" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Servisler" Member="tbl_Servislers">
+    <Type Name="tbl_Servisler">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Barkod" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="kategoriid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="calisanid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="serviseGelisTarihi" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="servisSuresi" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="servisTutari" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="garantiliMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="silindi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_Calisanlar_tbl_Servisler" Member="tbl_Calisanlar" ThisKey="calisanid" OtherKey="cid" Type="tbl_Calisanlar" IsForeignKey="true" />
+      <Association Name="tbl_Urunler_tbl_Servisler" Member="tbl_Urunler" ThisKey="Barkod" OtherKey="barkod" Type="tbl_Urunler" IsForeignKey="true" />
+      <Association Name="tbl_AltUrunKategori_tbl_Servisler" Member="tbl_AltUrunKategori" ThisKey="kategoriid" OtherKey="id" Type="tbl_AltUrunKategori" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_UrunKategori" Member="tbl_UrunKategoris">
+    <Type Name="tbl_UrunKategori">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ad" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Silindi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_UrunKategori_tbl_Urunler" Member="tbl_Urunlers" ThisKey="id" OtherKey="Kategoriid" Type="tbl_Urunler" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_AltUrunKategori" Member="tbl_AltUrunKategoris">
+    <Type Name="tbl_AltUrunKategori">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ad" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="UrunKategoriid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Silindi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_AltUrunKategori_tbl_Urunler" Member="tbl_Urunlers" ThisKey="id" OtherKey="AltKategoriid" Type="tbl_Urunler" />
+      <Association Name="tbl_AltUrunKategori_tbl_Servisler" Member="tbl_Servislers" ThisKey="id" OtherKey="kategoriid" Type="tbl_Servisler" />
+    </Type>
+  </Table>
+</Database>
